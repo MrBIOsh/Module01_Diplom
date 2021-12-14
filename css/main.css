@@ -16,6 +16,12 @@ body {
     font-family: 'Montserrat';
 }
 
+.container {
+    max-width: 1140px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .header-item {
     display: flex;
     justify-content: space-between;
@@ -23,6 +29,7 @@ body {
     padding: 51px 0px 27px;
     padding-left: 52.6px;
     padding-right: 33px;
+    gap: 237px;
 }
 
 .header-item a {
@@ -81,22 +88,20 @@ body {
 }
 
 .bg {
-    width: 1325px;
-    height: 852px;
+    max-width: 1340px;
     background-image: url(../files/@1x/Image\ 1\ screen.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right center;
     margin: 0 auto;
-    margin-left: 390px;
-    margin-bottom: 50px;
-    position: relative;
+    margin-left: 375px;
+    margin-bottom: 50px;    
 }
 
 .bg-text {
     max-width: 676px;    
     padding-top: 227px;
-    color: #2B3541;
+    color: #2B3541;    
 }
 
 .bg-text-title {
@@ -125,7 +130,9 @@ body {
 .bg-description {
     width: 297px;    
     margin: 0px;
-    margin-left: 91px; 
+    margin-left: 91px;
+    padding-bottom: 263px;
+    position: relative;
 }
 
 .bg-description p {    
@@ -151,5 +158,5 @@ body {
 .button-down {
     position: absolute;
     bottom: 1px;
-    left: 90px;
+    left: -1px;
 }
