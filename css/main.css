@@ -27,6 +27,7 @@ body {
 
 .header-item a {
     text-decoration: none;
+    color: #2B3541;
 }
 
 .header-logo {
@@ -50,8 +51,7 @@ body {
     
 }
 
-.header-links {        
-    color: #2B3541;
+.header-links {   
     font-size: 18px;
     font-weight: 400;
     gap: 54px;    
@@ -128,7 +128,7 @@ body {
     margin-left: 91px; 
 }
 
-.bg-text p {    
+.bg-description p {    
     font-size: 18px;
     font-weight: 400;
     margin: 0;   
@@ -136,7 +136,8 @@ body {
     margin-bottom: 57px;
 }
 
-.bg-text a {
+.bg-description a {
+    color: #2B3541;
     font-size: 16px;
     font-weight: 700;
     text-decoration: none;
