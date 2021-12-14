@@ -16,6 +16,13 @@ body {
     font-family: 'Montserrat';
 }
 
+.wrap {
+    max-width: 1920px;
+    padding-left: 52.6px;
+    padding-right: 33px;
+    margin: 0 auto;
+}
+
 .container {
     max-width: 1140px;
     padding-left: 15px;
@@ -27,9 +34,6 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 51px 0px 27px;
-    padding-left: 52.6px;
-    padding-right: 33px;
-    gap: 237px;
 }
 
 .header-item a {
@@ -48,13 +52,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 81.6%;   
+    flex-basis: 63.6%;   
     margin: 0;
 }
 
 .header-nav ul {
     display: flex;    
     list-style-type: none;
+    padding: 0;
     
 }
 
@@ -63,12 +68,14 @@ body {
     font-weight: 400;
     gap: 54px;    
     margin: 0;
-    padding: 0;
 }
 
 .nav-social {
+    display: flex;    
+    list-style-type: none;
     gap: 30px;    
-    margin: 0;
+    margin: 0;    
+    padding: 0;
 }
 
 .nav-social a {
@@ -87,14 +94,20 @@ body {
     background-image: url(../icons/FB.svg);
 }
 
+.wrapper {
+    max-width: 1140px;
+    padding-left: 15px;
+    padding-right: 30px;
+    margin: 0 auto;
+}
+
 .bg {
-    max-width: 1340px;
+    width: 1340px;
     background-image: url(../files/@1x/Image\ 1\ screen.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: right center;
     margin: 0 auto;
-    margin-left: 375px;
     margin-bottom: 50px;    
 }
 
