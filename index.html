@@ -52,33 +52,133 @@
     <main>
         <section class="edvents">
             <div class="container">
-                <h3>Ближайшие события</h3>
+                <h3 class="edvents-title">Ближайшие события</h3>
                 <div class="edvents-box">
                     <div class="box-item item-1"> <!--box-item item-1-->
-                        <div class="box-item item-gradient"></div> <!--box-item item-gradient-->
-                        <p class="box-text">
-                            <span>29.06 - 4.07</span>
-                            Марафон выносливости
-                        </p>
-                        <span class="edvents-name">марафон</span>
+                        <div class="box-item item-gradient">
+                            <div class="box-text">
+                                <span>29.06 - 4.07</span>
+                                <p class="box-text-title">Марафон выносливости</p>
+                                <a href="#">Участвовать</a>
+                            </div>  
+                            <span class="edvents-name">марафон</span>
+                        </div> <!--box-item item-gradient-->
                     </div>
                     <div class="box-item item-2">
-                        <div class="box-item item-gradient"></div>
-                            <p class="box-text">
+                        <div class="box-item item-gradient">
+                            <div class="box-text">
                                 <span>9.07</span>
-                                Как стать тренером?
-                            </p>
+                                <p class="box-text-title">Как стать тренером?</p>
+                                <a href="#">Участвовать</a>
+                            </div>
                             <span class="edvents-name">вебинар</span>
+                        </div>                            
                     </div>
                     <div class="box-item item-3">
-                        <div class="box-item item-gradient"></div>
-                        <p class="box-text">
-                            <span>15.07</span>
-                            Йога, как стиль жизни
-                        </p>
-                        <span class="edvents-name">вебинар</span>
+                        <div class="box-item item-gradient">
+                            <div class="box-text">
+                                <span>15.07</span>
+                                <p class="box-text-title">Йога, как стиль жизни</p>
+                                <a href="#" >Участвовать</a>
+                            </div>
+                            <span class="edvents-name">вебинар</span>
+                        </div>                                                
                     </div>
                 </div>                
+            </div>
+        </section>
+        <section class="schedule">
+            <div class="container">
+                <div class="schedule-box">
+                    <h3>Расписание тренировок</h3>
+                    <p>22 - 28 июня</p>
+                </div>
+                <div class="schedule-grid">
+                    <div class="schedule-grid-item grid-item-1">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/body.svg" alt="body">
+                            <span class="training-title">Функциональный тренинг</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф
+                            </p>
+                        </div>                        
+                    </div>
+                    <div class="schedule-grid-item grid-item-2">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/bottle.svg" alt="body">
+                            <span class="training-title">Body sculpt</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф 
+                                и прийти<br> в спортивную форму.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="schedule-grid-item grid-item-3">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/dumbbell.svg" alt="body">
+                            <span class="training-title">L.A.B.</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф 
+                                и прийти<br> в спортивную форму.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="schedule-grid-item grid-item-4 item-active">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/jump.svg" alt="body">
+                            <span class="training-title">Силовой микс</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф 
+                                и прийти<br> в спортивную форму.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="schedule-grid-item grid-item-5">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/heart.svg" alt="body">
+                            <span class="training-title">Дыхательные практики</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф 
+                                и прийти<br> в спортивную форму.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="schedule-grid-item grid-item-6">
+                        <time>22 июня, 10:00</time>
+                        <div class="training-box">
+                            <img src="icons/weight.svg" alt="body">
+                            <span class="training-title">Комплексная разминка</span>
+                            <p class="training-description">                            
+                                Упражнения помогут создать красивый рельеф 
+                                и прийти<br> в спортивную форму.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="subscribe">
+            <div class="subscribe-bg">
+                <div class="container">
+                    <div class="subscribe-box">
+                        <h3 class="subscribe-box-title">Подпишитесь на рассылку</h3>                  
+                        <div class="subscribe-box-flex">
+                            <input type="text" placeholder="Ваш e-mail">
+                            <a href="#" class="bg-button">подписаться</a>
+                        </div>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <p class="subscribe-box-checkbox-text">Согласен с обработкой 
+                                <a href="#" class="personal-data">персональных данных</a>
+                            </p>
+                        </label>                      
+                    </div>
+                </div>
             </div>
         </section>
     </main>
