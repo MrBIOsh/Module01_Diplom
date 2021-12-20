@@ -72,14 +72,10 @@ a {
     margin: 0;
 }
 
-.header-nav ul {
+.header-links {   
     display: flex;    
     list-style-type: none;
     padding: 0;
-    
-}
-
-.header-links {   
     font-size: 18px;
     font-weight: 400;
     gap: 54px;    
@@ -451,6 +447,7 @@ a {
     padding: 21px 140px;
     padding-left: 17px;
     letter-spacing: 1.2px;
+    outline: none;
 }
 
 .personal-data {
@@ -498,4 +495,102 @@ a {
 .custom-checkbox input[type=checkbox]:checked 
 + .subscribe-box-checkbox-text::before {
     background-image: url(../icons/check_box.svg);
+}
+
+.info-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.info-text {
+    width: 483px;
+}
+
+.info-title {
+    margin-bottom: 22px;
+}
+
+.info-description {
+    font-size: 18px;
+    margin-bottom: 57px;
+    line-height: 1.5;
+}
+
+.info-btn {
+    padding: 23px 52px;
+}
+
+.info-img {
+    position: relative;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.info-img-bg {
+    position: absolute;
+    width: 580px;
+    height: 336px;
+    background: linear-gradient(180deg, #FBF138 0%, rgba(253, 249, 182, 0.45) 100%);
+    opacity: 0.3;
+}
+
+.advantages-box {
+    display: flex;
+    justify-content: space-between;
+    gap: 67px;
+    margin-bottom: 170px;
+}
+
+.advantages-item:first-child {
+    flex-basis: 20.6%;
+}
+
+.advantages-item:nth-child(2) {
+    flex-basis: 25.5%;
+}
+
+.advantages-item:nth-child(3) {
+    flex-basis: 19.7%;
+}
+
+.advantages-item:last-child {
+    flex-basis: 18.1%;
+}
+
+.advantages-title {
+    display: block;
+    color: #2B3541;
+    margin-bottom: 22px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.advantages-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: #2B3541;
+    opacity: 0.6;
+    line-height: 1.5
+}
+
+.footer {
+    width: 100%;
+    background-color: #F3F3F3;    
+}
+
+.footer-links {
+    display: flex;    
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    gap: 90px;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 70.6%;   
+    margin: 0;
 }
