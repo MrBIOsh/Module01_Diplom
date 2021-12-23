@@ -12,9 +12,30 @@
     font-style: normal;
 }
 
+@keyframes modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes shadow {
+    from {opacity: 0;}
+    to {opacity: 0.3;}
+}
+
 body {
     font-family: 'Montserrat';
 }
+
+/* SCALE BUTTON */
+
+.nav-insta:hover, 
+.nav-fb:hover,
+.button-down:hover {
+    transition: 0.2s;    
+    transform: scale(1.2);
+}
+
+/* ------------------------------------ */
 
 p, h1, h2, h3 {
     color: #2B3541;
@@ -74,12 +95,20 @@ a {
 
 .header-links {   
     display: flex;    
-    list-style-type: none;
+    align-items: center;
+    list-style-type: none;    
     padding: 0;
     font-size: 18px;
     font-weight: 400;
     gap: 54px;    
     margin: 0;
+    line-height: 2.5;
+}
+
+.header-links a:hover {
+    display: inline-block;
+    line-height: 2;
+    border-bottom: 1px #2B3541 solid;
 }
 
 .nav-social {
@@ -107,13 +136,16 @@ a {
 }
 
 .bg {
-    max-width: 1340px;
     background-image: url(../files/@1x/Image\ 1\ screen.png);
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: right center;
+    background-position: 79% center;
     margin: 0 auto;
-    margin-bottom: 162px;    
+    margin-bottom: 142px;    
+}
+
+.bg > .container {
+    padding-right: 0;
 }
 
 .bg-text {
@@ -174,13 +206,20 @@ a {
 }
 
 .button-down {
+    width: 52px;
+    height: 55px;
     position: absolute;
+    background-image: url(../icons/Arrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     bottom: 0px;
     left: 0px;
+    cursor: pointer;
 }
 
 .edvents-title {    
     margin-bottom: 42px;
+    padding-top: 20px;
 }
 
 .edvents-box {
@@ -216,6 +255,7 @@ a {
     padding: 20px 37px;
     opacity: 0;
     transition: 0.7s;
+    cursor: pointer;
 }
 
 .item-1:hover .box-text > a,
@@ -437,13 +477,21 @@ a {
     padding-left: 17px;
     letter-spacing: 1.2px;
     outline: none;
+    border: none;    
 }
+
+::-moz-placeholder { 
+    color: #2B3541;
+    opacity: .3; }
+::-webkit-input-placeholder {
+    color: #2B3541;
+    opacity: .3; }
 
 .personal-data {
     opacity: 0.5;
 }
 
-.personal-data:hover {
+.personal-data:hover, .copyright > p > a:hover {
     opacity: 1;
 }
 
@@ -573,11 +621,19 @@ a {
 
 .footer-links {
     display: flex;    
+    align-items: center;
     list-style-type: none;
     padding: 0;
     margin: 0;
     font-size: 14px;
     gap: 90px;
+    line-height: 2.5;
+}
+
+.footer-links a:hover {
+    display: inline-block;
+    line-height: 2;
+    border-bottom: 1px #2B3541 solid;
 }
 
 .footer-nav {
@@ -640,6 +696,111 @@ a {
 
 .copyright p {
     font-size: 14px;
-    color: #2B3541;
+    color: rgba(43, 53, 65, 0.3)
+}
+
+.copyright p > a {
     opacity: 0.3;
+}
+
+.copyright p > a:hover {
+    opacity: 1;
+}
+
+.modalwin { 
+    width: 600px;
+    background: #F3F3F3;
+    top: 20%; /* отступ сверху */
+    right: 0;
+    left: 0;
+    font-size: 14px; 
+    margin: 0 auto;
+    z-index:2; /* поверх всех */
+    display: none;  /* сначала невидим */
+    position: fixed; /* фиксированное позиционирование, окно стабильно при прокрутке */
+    padding: 60px 50px 80px;
+    animation-name: modal;
+    animation-duration: 1s
+}
+
+#shadow { 
+    position: fixed;
+    width:100%;
+    height:100%;
+    z-index:1; /* поверх всех  кроме окна*/
+    background:#000;
+    opacity: 0.3; /*прозрачность*/
+    left:0;
+    top:0;
+    animation-name: shadow;
+    animation-duration: 0.7s
+}
+
+.modal-close {
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    background-image: url(../icons/close.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-box {
+    width: 403px;    
+    margin: 0 auto;
+    margin-bottom: 40px;
+    color: #2B3541;
+}
+
+.modal-title {
+    position: relative;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.modal-title::before {
+    content: '';
+    position: absolute;
+    top: -31px;
+    left: 22px;
+    background-color: #fbf138;
+    box-shadow: 0px 13px 24px rgb(251 241 56 / 30%);
+    padding: 27px;
+    border-radius: 30px;
+    z-index: -1;
+}
+
+.modal-description {
+    font-size: 18px;    
+    line-height: 1.5;
+}
+
+.modal-form {
+}
+
+.modal-form > input {
+    display: block;
+    outline: none;
+    padding: 23px 406px;
+    padding-left: 17px;
+    border: none;
+}
+
+input[type="email"] {
+    margin-bottom: 20px;
+}
+
+input[type="tel"] {    
+    margin-bottom: 50px;
+}
+
+.modal-form a {
+    padding: 23px 244px;
 }

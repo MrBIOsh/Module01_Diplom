@@ -34,30 +34,30 @@
                     <h1 class="bg-text-title">
                         онлайн тренировки любой сложности
                     </h1>
-                     <h2>
+                    <h2>
                         <span>> 15</span>
-                         тренировок</h2>
-                     <div class="bg-description">
+                        тренировок
+                    </h2>
+                    <div class="bg-description">
                         <p>в области спортивной физиологии и нутрициологии</p>
                         <a href="#" class="bg-button">Узнать подробнее</a>
-                        <img src="icons/Arrow.svg" alt="" class="button-down"> 
-                     </div>           
+                        <a href="#events" class="button-down"></a>
+                    </div>           
                 </div> 
             </div>                                                         
-         </div>       
+        </div>       
     </header>
-
     <main>
         <section class="edvents">
             <div class="container">
-                <h3 class="edvents-title">Ближайшие события</h3>
+                <h3 class="edvents-title" id="events">Ближайшие события</h3>
                 <div class="edvents-box">
                     <div class="box-item item-1"> <!--box-item item-1-->
                         <div class="box-item item-gradient">
                             <div class="box-text">
                                 <span>29.06 - 4.07</span>
                                 <p class="box-text-title">Марафон выносливости</p>
-                                <a href="#">Участвовать</a>
+                                <a onclick="showModalWin()">Участвовать</a>
                             </div>  
                             <span class="edvents-name">марафон</span>
                         </div> <!--box-item item-gradient-->
@@ -67,7 +67,7 @@
                             <div class="box-text">
                                 <span>9.07</span>
                                 <p class="box-text-title">Как стать тренером?</p>
-                                <a href="#">Участвовать</a>
+                                <a onclick="showModalWin()">Участвовать</a>
                             </div>
                             <span class="edvents-name">вебинар</span>
                         </div>                            
@@ -77,7 +77,7 @@
                             <div class="box-text">
                                 <span>15.07</span>
                                 <p class="box-text-title">Йога, как стиль жизни</p>
-                                <a href="#" >Участвовать</a>
+                                <a onclick="showModalWin()">Участвовать</a>
                             </div>
                             <span class="edvents-name">вебинар</span>
                         </div>                                                
@@ -251,5 +251,57 @@
             </div>
         </div>
     </footer>
+    <div style="text-align: center" id="popupWin" class="modalwin">
+        <button type="button" class="modal-close" onclick="closeModal()"></button>
+        <div class="modal-box">
+            <p class="modal-title">Заявка на участие
+                «Марафон выносливости»</p>
+            <p class="modal-description">
+                Заполните все поля, и мы пришлем информацию в ближайшее время
+            </p>
+        </div>        
+        <form class="modal-form">
+            <input type="email" placeholder="Ваш e-mail">
+            <input type="tel" placeholder="Ваш номер телефона">
+            <a href="#" class="bg-button">Отправить</a>
+        </form>
+    </div>
+    <script>
+
+        // Smooth Scroll
+
+        const links = document.querySelectorAll(".button-down");
+
+        for (const link of links) {
+        link.addEventListener("click", clickHandler);
+        }
+
+        function clickHandler(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+
+        document.querySelector(href).scrollIntoView({
+            behavior: "smooth"
+            });
+        }
+
+        // ModalWin
+
+        function showModalWin() {
+
+            var darkLayer = document.createElement('div'); // слой затемнения
+            darkLayer.id = 'shadow'; // id чтобы подхватить стиль
+            document.body.appendChild(darkLayer); // включаем затемнение
+
+            var modalWin = document.getElementById('popupWin'); // находим наше "окно"
+            modalWin.style.display = 'block'; // "включаем" его
+            
+        }
+
+        function closeModal() {
+            document.getElementById("popupWin").style.display = "none";
+            document.getElementById("shadow").parentNode.removeChild(document.getElementById("shadow"));
+        }
+    </script>
 </body>
 </html>
