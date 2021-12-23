@@ -106,13 +106,6 @@ a {
     background-image: url(../icons/FB.svg);
 }
 
-.wrapper {
-    max-width: 1140px;
-    padding-left: 15px;
-    padding-right: 30px;
-    margin: 0 auto;
-}
-
 .bg {
     width: 1340px;
     background-image: url(../files/@1x/Image\ 1\ screen.png);
@@ -121,10 +114,6 @@ a {
     background-position: right center;
     margin: 0 auto;
     margin-bottom: 162px;    
-}
-
-.bg > .container {
-    margin: 0;
 }
 
 .bg-text {
