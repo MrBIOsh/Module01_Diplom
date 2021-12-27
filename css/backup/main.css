@@ -52,6 +52,13 @@ a {
     color: #2B3541;
 }
 
+.wrap {
+    max-width: 1920px;
+    padding-left: 52.6px;
+    padding-right: 33px;
+    margin: 0 auto;
+}
+
 .container {
     max-width: 1140px;
     padding-left: 15px;
@@ -63,7 +70,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 44px 0px 22px;
+    padding: 51px 0px 27px;
 }
 
 .header-item a {
@@ -82,7 +89,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 67.6%;   
+    flex-basis: 63.6%;   
     margin: 0;
 }
 
@@ -129,19 +136,22 @@ a {
 }
 
 .bg {
-    margin-bottom: 140px;
+    background-image: url(../files/@1x/Image\ 1\ screen.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 79% center;
+    margin: 0 auto;
+    margin-bottom: 142px;    
 }
 
 .bg > .container {
-    display: flex;
+    padding-right: 0;
 }
 
 .bg-text {
     max-width: 676px;    
-    padding-top: 225px;
-    color: #2B3541;
-    z-index: 1;    
-    position: relative;
+    padding-top: 227px;
+    color: #2B3541;    
 }
 
 .bg-text-title {
@@ -166,6 +176,8 @@ a {
 .bg-description {
     width: 297px;    
     margin-left: 91px;
+    padding-bottom: 261px;
+    position: relative;
 }
 
 .bg-description p {    
@@ -182,8 +194,7 @@ a {
     text-decoration: none;
     text-transform: uppercase;
     background-color: #FBF138;
-    padding: 23px 29px;
-    padding-bottom: 22px;
+    padding: 23px 31px;
     letter-spacing: 0.5px;
     box-shadow: 0px 11px 28px -15px #fbf138;
 }
@@ -202,55 +213,20 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     bottom: 0px;
+    left: 0px;
     cursor: pointer;
-}
-
-.visual {
-    position: relative;
-    width: 790px;
-    height: 850px;
-    right: -75px;
-    top: 0px;
-}
-
-.visual img {
-    position: absolute;
-    top: 39px;
-    right: -97px;
-}
-
-.visual-bg {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;    
-    gap: 20px;
-    right: 0;
-}
-
-.visual-bg-1 {
-    height: 850px;
-    width: 535px;
-    background: linear-gradient(90deg, #FBF138 0%, rgba(253, 249, 182, 0.45) 145.23%);
-    opacity: 0.2;
-}
-
-.visual-bg-2 {
-    height: 850px;
-    width: 235px;
-    background: linear-gradient(90deg, #FBF138 0%, rgba(253, 249, 182, 0.45) 145.23%);
-    opacity: 0.2;
 }
 
 .edvents-title {    
     margin-bottom: 42px;
-    padding-top: 22px;
+    padding-top: 20px;
 }
 
 .edvents-box {
     display: flex;
     height: 600px;
     justify-content: space-between;
-    margin-bottom: 158px;
+    margin-bottom: 150px;
 }
 
 .box-item {
@@ -333,6 +309,10 @@ a {
     right: 0px;
 }
 
+.item-gradient:hover .edvents-name {
+    opacity: 0;
+}
+
 .item-1 > .edvents-name {
     bottom: 2px;
 }
@@ -366,10 +346,8 @@ a {
     border: 1px solid rgba(43, 53, 65, 0.5);    
     padding: 20px 30px;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     overflow-y: hidden;
+    position: relative;    
 }
 
 .schedule-grid-item time {
@@ -381,29 +359,7 @@ a {
     opacity: 0.7;
 }
 
-.schedule-grid-item:hover {
-    background: rgba(243, 243, 243, 0.5);
-    box-shadow: 0px 4px 30px rgba(43, 53, 65, 0.2);
-    border: 1px solid rgba(43, 53, 65, 0);  
-}
-
-.schedule-grid-item:hover .training-description {
-    opacity: 1;
-    max-height: 100px;
-    transition: .7s;
-}
-
-.schedule-grid-item:hover .training-title {
-    margin-bottom: 23px;
-}
-
-.schedule-grid-item:nth-child(1):hover .training-box img,
-.schedule-grid-item:nth-child(5):hover .training-box img {
-    margin-bottom: 15px;
-    transition: 1s;
-}
-
-.training-box img {
+.schedule-grid-item img {
     margin-bottom: 37px;
 }
 
@@ -411,12 +367,10 @@ a {
     display: block;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 0px; /*23*/
+    margin-bottom: 23px;
 }
 
 .training-description {
-    opacity: 0;
-    max-height: 0;
     max-width: 306px;   
     font-size: 18px;
     font-weight: 400;
@@ -453,6 +407,26 @@ a {
     grid-column-start: 3;
 }
 
+.training-box {
+    position: absolute;
+    bottom: -84px;
+}
+
+.grid-item-1 .training-box {
+    bottom: -56px;
+}
+
+.schedule-grid-item:hover {
+    background: rgba(243, 243, 243, 0.5);
+    box-shadow: 0px 4px 30px rgba(43, 53, 65, 0.2);
+    border: 1px solid rgba(43, 53, 65, 0);  
+}
+
+.schedule-grid-item:hover .training-box {
+    bottom: 20px;
+    transition: 0.5s;
+}
+
 .item-active:hover {
     background: linear-gradient(180deg, rgba(251, 241, 56, 0.6) 0%, rgba(253, 249, 182, 0.45) 100%);
     box-shadow: 0px 13px 30px rgba(186, 180, 69, 0.2);
@@ -461,16 +435,14 @@ a {
 .subscribe-bg {
     width: 100%;
     height: 348px;
-    margin-bottom: 162px;
+    margin-bottom: 160px;
     background-color: #F3F3F3;
 }
 
 .subscribe-box {
-    max-width: 617px;
+    width: 620px;
     margin: 0 auto;
     position: relative;
-    padding-left: 15px;
-    padding-top: 2px;
 }
 
 .subscribe-box-title {
@@ -478,14 +450,13 @@ a {
     z-index: 1;
     padding-top: 80px;
     margin-bottom: 40px;
-    padding-left: 9px;
 }
 
 .subscribe-box-title::before {
     content: '';
     position: absolute;
-    top: 60px;
-    left: -27px;
+    top: 59px;
+    left: -36px;
     background-color: #fbf138;
     box-shadow: 0px 13px 24px rgb(251 241 56 / 30%);
     padding: 27px;
@@ -495,22 +466,27 @@ a {
 
 .subscribe-box-flex {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     gap: 20px;
-    margin-bottom: 13px;
+    margin-bottom: 10px;
 }
 
 .subscribe-box-flex a {
-    padding: 24px 42px;
+    padding: 23px 43px;
 }
 
 .subscribe-box-flex input {
-    padding: 23px 140px;
-    padding-left: 23px;
+    padding: 21px 140px;
+    padding-left: 17px;
     letter-spacing: 1.2px;
     outline: none;
     border: none;    
+}
+
+.subscribe-box-flex input:hover {
+    background-color: #F3F3F3;
+    cursor: pointer;
 }
 
 ::-moz-placeholder { 
@@ -570,7 +546,7 @@ a {
 .info-box {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 75px;
+    margin-bottom: 80px;
 }
 
 .info-text {
@@ -588,7 +564,7 @@ a {
 }
 
 .info-btn {
-    padding: 23px 50px;
+    padding: 23px 52px;
 }
 
 .info-img {
