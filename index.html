@@ -172,11 +172,11 @@
         <section class="subscribe">
             <div class="subscribe-bg">
                 <div class="container">
-                    <div class="subscribe-box">
-                        <h3 class="subscribe-box-title">Подпишитесь на рассылку</h3>                  
+                    <form action="#" class="subscribe-box" id="form_sub">
+                        <h3 class="subscribe-box-title">Подпишитесь на рассылку</h3>
+                        <p class="input-email-error" id="email-sub-error">Некорректный адрес e-mail</p>                  
                         <div class="subscribe-box-flex" id="subscribe">
-                            <input type="text" class="email req" placeholder="Ваш e-mail"> <!--<a href="#" class="bg-button">подписаться</a>-->
-                            <p class="input-email-error">Некорректный адрес e-mail</p>
+                            <input type="text" class="input-email-sub req" placeholder="Ваш e-mail">
                             <button type="submit" class="subscribe-btn bg-button">подписаться</button>
                         </div>
                         <label class="custom-checkbox">
@@ -185,7 +185,7 @@
                                 <a href="#" class="personal-data">персональных данных</a>
                             </p>
                         </label>                      
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -271,9 +271,9 @@
             </p>
         </div>        
         <form action="#" class="modal-form" id="form">
-            <input type="email" class="input-email req" placeholder="Ваш e-mail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$">
+            <input type="text" class="input-email req" placeholder="Ваш e-mail">
             <p class="input-email-error" id="email-error">Некорректный адрес e-mail</p>
-            <input type="text" id="tel" class="input-tel req" placeholder="Ваш номер телефона" pattern="^((\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$"> <!--<a href="#" class="bg-button">Отправить</a>-->
+            <input type="text" id="tel" class="input-tel req" placeholder="Ваш номер телефона">
             <p class="input-tel-error" id="tel-error">Некорректный номер телефона</p>
             <button type="submit" class="modal-form-btn bg-button">отправить</button>
         </form>
@@ -300,47 +300,74 @@
         // ModalWin
 
         function showModalWin() {
+            var darkLayer = document.createElement('div'); // layer blackout
+            darkLayer.id = 'shadow';
+            document.body.appendChild(darkLayer); // blackout on
 
-            var darkLayer = document.createElement('div'); // слой затемнения
-            darkLayer.id = 'shadow'; // id чтобы подхватить стиль
-            document.body.appendChild(darkLayer); // включаем затемнение
-
-            var modalWin = document.getElementById('popupWin'); // находим наше "окно"
-            modalWin.style.display = 'block'; // "включаем" его
-
-
-            
+            var modalWin = document.getElementById('popupWin');
+            modalWin.style.display = 'block';        
         }
 
         function closeModal() {
-            /*let formError = document.querySelectorAll('.error');
-
-            for (let index = 0; index < formError.length; index++) {
-                    const input = formError[index];
-                    input.parentElement.classList.remove('error');
-                    input.classList.remove('error');
-            }*/
-
+            
             document.getElementById("popupWin").style.display = "none";
             document.getElementById("shadow").parentNode.removeChild(document.getElementById("shadow"));
-            document.getElementById('email-error').style.display = 'none';       
+            document.getElementById('email-error').style.visibility = 'hidden';
+            document.getElementById('tel-error').style.visibility = 'hidden';
+
+            let formError = document.querySelectorAll('.error');
+                
+            for (let index = 0; index < formError.length; index++) {
+                const input = formError[index];
+                input.value = "";
+                input.parentElement.classList.remove('error');
+                input.classList.remove('error');
+            }
         }
 
         //Mask for Tel
-
-        jQuery(function($){
-            $("#tel").mask("+7 (999) 999-99-99");
+            jQuery(function($){
+                $("#tel").mask("+7 (999) 999-99-99");
             });
 
         //Validation
+        
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('form');
+            const form_sub = document.getElementById('form_sub');
             form.addEventListener('submit', formSend);
+            form_sub.addEventListener('submit', formSendSub);
 
             async function formSend(e) {
                 e.preventDefault();
 
-                let error = formValidate(form);
+                let error = formValidate(form);                
+            }
+
+            async function formSendSub(e) {
+                e.preventDefault();
+                let error = ValidationSub(form_sub);
+            }
+
+            function ValidationSub(form_sub) {
+            
+                let formReq = document.querySelectorAll('.req');            
+                    
+                for (let index = 0; index < formReq.length; index++) {
+                    const input = formReq[index];
+
+                    if (input.classList.contains('input-email-sub')){
+                        if (!emailTest(input)) {
+                            input.parentElement.classList.add('error');
+                            input.classList.add('error');
+                            document.getElementById("email-sub-error").style.visibility = 'visible';
+                        } else {
+                            input.parentElement.classList.remove('error');
+                            input.classList.remove('error');
+                            document.getElementById("email-sub-error").style.visibility = 'hidden'; 
+                        }
+                    }
+                }
             }
 
             function formValidate(form) {
@@ -351,23 +378,37 @@
                     
                     if (input.classList.contains('input-email')){
                         if (!emailTest(input)) {
-                            document.getElementById('email-error').style.display = 'block';
+                            input.parentElement.classList.add('error');
+                            input.classList.add('error');
+                            document.getElementById("email-error").style.visibility = 'visible';
                         } else {
-                            document.getElementById('email-error').style.display = 'none'; 
+                            input.parentElement.classList.remove('error');
+                            input.classList.remove('error');
+                            document.getElementById("email-error").style.visibility = 'hidden'; 
                         }
-                    }                    
+                    }
+
+                    if (input.classList.contains('input-tel')){
+                        if (telTest(input)) {
+                            input.parentElement.classList.add('error');
+                            input.classList.add('error');
+                            document.getElementById("tel-error").style.visibility = 'visible';
+                        } else {
+                            input.parentElement.classList.remove('error');
+                            input.classList.remove('error');
+                            document.getElementById("tel-error").style.visibility = 'hidden'; 
+                        }
+                    }
                 }
-            }            
+            }
 
             function emailTest(input) {
-                return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.value);
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.value);
             }
             
             function telTest(input) {
                 return !/^((\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$/.test(input.value);
             }
-            //+7 (123) 456 - 78 - 91
-
         });
     </script>
 </body>
