@@ -186,6 +186,7 @@ a {
     padding-bottom: 22px;
     letter-spacing: 0.5px;
     box-shadow: 0px 11px 28px -15px #fbf138;
+    cursor: pointer;
 }
 
 .bg-button:hover {
@@ -441,6 +442,11 @@ a {
 
 .item-active {    
     background: linear-gradient(180deg, rgba(251, 241, 56, 0.6) 0%, rgba(253, 249, 182, 0.45) 100%);
+    border: none;
+}
+
+.item-active time {
+    color: #2B3541;
 }
 
 .grid-item-5 {
@@ -456,6 +462,7 @@ a {
 .item-active:hover {
     background: linear-gradient(180deg, rgba(251, 241, 56, 0.6) 0%, rgba(253, 249, 182, 0.45) 100%);
     box-shadow: 0px 13px 30px rgba(186, 180, 69, 0.2);
+    border: none;
 }
 
 .subscribe-bg {
@@ -501,7 +508,8 @@ a {
     margin-bottom: 13px;
 }
 
-.subscribe-box-flex a {
+.subscribe-btn {
+    border: none;
     padding: 24px 42px;
 }
 
@@ -815,25 +823,39 @@ a {
     line-height: 1.5;
 }
 
-.modal-form {
-}
-
 .modal-form > input {
     display: block;
-    outline: none;
     padding: 23px 406px;
     padding-left: 17px;
     border: none;
 }
 
-input[type="email"] {
+input:focus {
+    outline: none;
+}
+
+.input-email {
     margin-bottom: 20px;
 }
 
-input[type="tel"] {    
+.input-tel {
     margin-bottom: 50px;
 }
 
-.modal-form a {
+.input-email:invalid,
+.input-tel:invalid {
+    border: 1px solid #AE0303;
+}
+
+.input-email-error,
+.input-tel-error {
+    display: none;
+    color: #AE0303;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.modal-form-btn {
     padding: 23px 244px;
+    border: none;
 }

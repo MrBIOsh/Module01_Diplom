@@ -7,6 +7,8 @@
     <title>Workouts</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
 </head>
 <body>
     <header>
@@ -172,12 +174,13 @@
                 <div class="container">
                     <div class="subscribe-box">
                         <h3 class="subscribe-box-title">Подпишитесь на рассылку</h3>                  
-                        <div class="subscribe-box-flex">
-                            <input type="text" placeholder="Ваш e-mail">
-                            <a href="#" class="bg-button">подписаться</a>
+                        <div class="subscribe-box-flex" id="subscribe">
+                            <input type="text" class="email req" placeholder="Ваш e-mail"> <!--<a href="#" class="bg-button">подписаться</a>-->
+                            <p class="input-email-error">Некорректный адрес e-mail</p>
+                            <button type="submit" class="subscribe-btn bg-button">подписаться</button>
                         </div>
                         <label class="custom-checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" class="req">
                             <p class="subscribe-box-checkbox-text">Согласен с обработкой 
                                 <a href="#" class="personal-data">персональных данных</a>
                             </p>
@@ -267,10 +270,12 @@
                 Заполните все поля, и мы пришлем информацию в ближайшее время
             </p>
         </div>        
-        <form class="modal-form">
-            <input type="email" placeholder="Ваш e-mail">
-            <input type="tel" placeholder="Ваш номер телефона">
-            <a href="#" class="bg-button">Отправить</a>
+        <form action="#" class="modal-form" id="form">
+            <input type="email" class="input-email req" placeholder="Ваш e-mail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$">
+            <p class="input-email-error" id="email-error">Некорректный адрес e-mail</p>
+            <input type="text" id="tel" class="input-tel req" placeholder="Ваш номер телефона" pattern="^((\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$"> <!--<a href="#" class="bg-button">Отправить</a>-->
+            <p class="input-tel-error" id="tel-error">Некорректный номер телефона</p>
+            <button type="submit" class="modal-form-btn bg-button">отправить</button>
         </form>
     </div>
     <script>
@@ -302,13 +307,68 @@
 
             var modalWin = document.getElementById('popupWin'); // находим наше "окно"
             modalWin.style.display = 'block'; // "включаем" его
+
+
             
         }
 
         function closeModal() {
+            /*let formError = document.querySelectorAll('.error');
+
+            for (let index = 0; index < formError.length; index++) {
+                    const input = formError[index];
+                    input.parentElement.classList.remove('error');
+                    input.classList.remove('error');
+            }*/
+
             document.getElementById("popupWin").style.display = "none";
             document.getElementById("shadow").parentNode.removeChild(document.getElementById("shadow"));
+            document.getElementById('email-error').style.display = 'none';       
         }
+
+        //Mask for Tel
+
+        jQuery(function($){
+            $("#tel").mask("+7 (999) 999-99-99");
+            });
+
+        //Validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('form');
+            form.addEventListener('submit', formSend);
+
+            async function formSend(e) {
+                e.preventDefault();
+
+                let error = formValidate(form);
+            }
+
+            function formValidate(form) {
+                let formReq = document.querySelectorAll('.req');
+                
+                for (let index = 0; index < formReq.length; index++) {
+                    const input = formReq[index];
+                    
+                    if (input.classList.contains('input-email')){
+                        if (!emailTest(input)) {
+                            document.getElementById('email-error').style.display = 'block';
+                        } else {
+                            document.getElementById('email-error').style.display = 'none'; 
+                        }
+                    }                    
+                }
+            }            
+
+            function emailTest(input) {
+                return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input.value);
+            }
+            
+            function telTest(input) {
+                return !/^((\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{10}$/.test(input.value);
+            }
+            //+7 (123) 456 - 78 - 91
+
+        });
     </script>
 </body>
 </html>
