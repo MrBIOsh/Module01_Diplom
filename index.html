@@ -361,6 +361,13 @@
                             input.parentElement.classList.add('error');
                             input.classList.add('error');
                             document.getElementById("email-sub-error").style.visibility = 'visible';
+                            input.onfocus = function() {
+                                if (input.classList.contains('error')) {
+                                    input.parentElement.classList.remove('error');
+                                    input.classList.remove('error');
+                                    document.getElementById("email-sub-error").style.visibility = 'hidden';
+                                }
+                            }
                         } else {
                             input.parentElement.classList.remove('error');
                             input.classList.remove('error');
@@ -381,6 +388,13 @@
                             input.parentElement.classList.add('error');
                             input.classList.add('error');
                             document.getElementById("email-error").style.visibility = 'visible';
+                            input.onfocus = function() {
+                                if (input.classList.contains('error')) {
+                                    input.parentElement.classList.remove('error');
+                                    input.classList.remove('error');
+                                    document.getElementById("email-error").style.visibility = 'hidden';
+                                }
+                            }
                         } else {
                             input.parentElement.classList.remove('error');
                             input.classList.remove('error');
@@ -393,6 +407,13 @@
                             input.parentElement.classList.add('error');
                             input.classList.add('error');
                             document.getElementById("tel-error").style.visibility = 'visible';
+                            input.onfocus = function() {
+                                if (input.classList.contains('error')) {
+                                    input.parentElement.classList.remove('error');
+                                    input.classList.remove('error');
+                                    document.getElementById("tel-error").style.visibility = 'hidden';
+                                }
+                            }
                         } else {
                             input.parentElement.classList.remove('error');
                             input.classList.remove('error');
@@ -403,7 +424,7 @@
             }
 
             function emailTest(input) {
-                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input.value);
+                return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,5})+$/.test(input.value);
             }
             
             function telTest(input) {
