@@ -18,9 +18,9 @@
                     <a href="#" class="header-logo"></a>
                     <nav class="header-nav">
                         <ul class="header-links">                    
-                            <li><a href="#">Мероприятия</a></li>
-                            <li><a href="#">Расписание</a></li>
-                            <li><a href="#">О компании</a></li>                                        
+                            <li><a href="#events" class="scroll">Мероприятия</a></li>
+                            <li><a href="#schedule" class="scroll">Расписание</a></li>
+                            <li><a href="#info" class="scroll">О компании</a></li>                                        
                         </ul>
                     </nav>
                     <ul class="nav-social">
@@ -44,7 +44,7 @@
                         <p>в области спортивной физиологии и нутрициологии</p>
                         <a href="#" class="bg-button">Узнать подробнее</a>                        
                     </div>
-                    <a href="#events" class="button-down"></a>           
+                    <a href="#events" class="button-down scroll"></a>           
                 </div>
                 <div class="visual">
                     <div class="visual-bg">
@@ -57,7 +57,7 @@
         </div>       
     </header>
     <main>
-        <section class="edvents">
+        <section class="edvents" id="events">
             <div class="container">
                 <h3 class="edvents-title" id="events">Ближайшие события</h3>
                 <div class="edvents-box">
@@ -94,7 +94,7 @@
                 </div>                
             </div>
         </section>
-        <section class="schedule">
+        <section class="schedule" id="schedule">
             <div class="container">
                 <div class="schedule-box">
                     <h3>Расписание тренировок</h3>
@@ -180,7 +180,7 @@
                             <button type="submit" class="subscribe-btn bg-button">подписаться</button>
                         </div>
                         <label class="custom-checkbox">
-                            <input type="checkbox" class="req">
+                            <input type="checkbox" class="checkbox-item req">
                             <p class="subscribe-box-checkbox-text">Согласен с обработкой 
                                 <a href="#" class="personal-data">персональных данных</a>
                             </p>
@@ -189,7 +189,7 @@
                 </div>
             </div>
         </section>
-        <section class="info">
+        <section class="info" id="info">
             <div class="container">
                 <div class="info-box">
                     <div class="info-text">
@@ -243,9 +243,9 @@
                     <a href="#" class="header-logo"></a>
                     <nav class="footer-nav">
                         <ul class="footer-links">                    
-                            <li><a href="#">Мероприятия</a></li>
-                            <li><a href="#">Расписание</a></li>
-                            <li><a href="#">О компании</a></li>                                        
+                            <li><a href="#events" class="scroll">Мероприятия</a></li>
+                            <li><a href="#schedule" class="scroll">Расписание</a></li>
+                            <li><a href="#info" class="scroll">О компании</a></li>                                        
                         </ul>
                     </nav>
                     <ul class="footer-nav-social">
@@ -282,7 +282,7 @@
 
         // Smooth Scroll
 
-        const links = document.querySelectorAll(".button-down");
+        const links = document.querySelectorAll(".scroll");
 
         for (const link of links) {
         link.addEventListener("click", clickHandler);
@@ -326,6 +326,7 @@
         }
 
         //Mask for Tel
+
             jQuery(function($){
                 $("#tel").mask("+7 (999) 999-99-99");
             });
@@ -340,87 +341,108 @@
 
             async function formSend(e) {
                 e.preventDefault();
-
-                let error = formValidate(form);                
+                let error = formValidate(form);
+                if (error === 0) {
+                    alert("The entry was created successfully!")
+                } else {
+                    alert("Check all fields please!");
+                }              
             }
 
             async function formSendSub(e) {
                 e.preventDefault();
                 let error = ValidationSub(form_sub);
+                if (error === 0) {
+                    alert("Congratulations! You are my subscriber!");
+                } else {
+                    alert("Check all fields please!");
+                }                
             }
 
             function ValidationSub(form_sub) {
-            
+                
+                let error = 0;
                 let formReq = document.querySelectorAll('.req');            
                     
                 for (let index = 0; index < formReq.length; index++) {
                     const input = formReq[index];
-
+                    formRemoveError(input);
                     if (input.classList.contains('input-email-sub')){
                         if (!emailTest(input)) {
-                            input.parentElement.classList.add('error');
-                            input.classList.add('error');
+                            formAddError(input);
                             document.getElementById("email-sub-error").style.visibility = 'visible';
                             input.onfocus = function() {
                                 if (input.classList.contains('error')) {
-                                    input.parentElement.classList.remove('error');
-                                    input.classList.remove('error');
+                                    formRemoveError(input);
                                     document.getElementById("email-sub-error").style.visibility = 'hidden';
-                                }
+                                } 
                             }
-                        } else {
-                            input.parentElement.classList.remove('error');
-                            input.classList.remove('error');
-                            document.getElementById("email-sub-error").style.visibility = 'hidden'; 
+                            error++;
                         }
                     }
+                    if (input.classList.contains('checkbox-item')) {
+                        if (input.getAttribute("type") === "checkbox" && input.checked === false) {
+                            formAddError(input);
+                            input.onfocus = function() {
+                                if (input.classList.contains('error')) {
+                                    formRemoveError(input);
+                                }
+                            }
+                            error++;
+                        }
+                    }                    
                 }
-            }
+                return error;                
+            }            
 
             function formValidate(form) {
+
+                let error = 0;
                 let formReq = document.querySelectorAll('.req');
                 
                 for (let index = 0; index < formReq.length; index++) {
                     const input = formReq[index];
+                    formRemoveError(input);
                     
                     if (input.classList.contains('input-email')){
                         if (!emailTest(input)) {
-                            input.parentElement.classList.add('error');
-                            input.classList.add('error');
+                            formAddError(input);
                             document.getElementById("email-error").style.visibility = 'visible';
                             input.onfocus = function() {
                                 if (input.classList.contains('error')) {
-                                    input.parentElement.classList.remove('error');
-                                    input.classList.remove('error');
+                                    formRemoveError(input);
                                     document.getElementById("email-error").style.visibility = 'hidden';
                                 }
                             }
-                        } else {
-                            input.parentElement.classList.remove('error');
-                            input.classList.remove('error');
-                            document.getElementById("email-error").style.visibility = 'hidden'; 
+                            error++;
                         }
                     }
-
                     if (input.classList.contains('input-tel')){
                         if (telTest(input)) {
-                            input.parentElement.classList.add('error');
-                            input.classList.add('error');
+                            formAddError(input);
                             document.getElementById("tel-error").style.visibility = 'visible';
                             input.onfocus = function() {
                                 if (input.classList.contains('error')) {
-                                    input.parentElement.classList.remove('error');
-                                    input.classList.remove('error');
+                                    formRemoveError(input);
                                     document.getElementById("tel-error").style.visibility = 'hidden';
                                 }
                             }
-                        } else {
-                            input.parentElement.classList.remove('error');
-                            input.classList.remove('error');
-                            document.getElementById("tel-error").style.visibility = 'hidden'; 
+                            error++;
                         }
                     }
                 }
+                return error;
+            }
+            
+
+            function formAddError(input) {
+                input.parentElement.classList.add('error');
+                input.classList.add('error');
+            }
+
+            function formRemoveError(input) {
+                input.parentElement.classList.remove('error');
+                input.classList.remove('error');
             }
 
             function emailTest(input) {

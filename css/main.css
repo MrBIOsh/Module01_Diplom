@@ -185,14 +185,14 @@ a {
     padding: 23px 29px;
     padding-bottom: 22px;
     letter-spacing: 0.5px;
-    box-shadow: 0px 11px 28px -15px #fbf138;
+    box-shadow: 0px 13px 24px rgba(251, 241, 56, 0.3);
     cursor: pointer;
 }
 
 .bg-button:hover {
     color: #FBF138;
     background-color: #2B3541;
-    box-shadow: 0px 11px 28px -15px #2B3541;
+    box-shadow: 0px 13px 24px rgba(43, 53, 65, 0.2);
 }
 
 .button-down {
@@ -276,17 +276,19 @@ a {
     text-transform: uppercase;
     color: #FBF138;
     background-color: #2B3541;
-    box-shadow: 0px 11px 28px -15px #2B3541;
+    box-shadow: 0px 13px 24px rgba(43, 53, 65, 0.2);
     padding: 20px 37px;
     opacity: 0;
     transition: 0.7s;
     cursor: pointer;
 }
 
-.item-1:hover .box-text > a,
-.item-2:hover .box-text > a,
-.item-3:hover .box-text > a {
+.box-item:hover .box-text > a {
     opacity: 1;
+}
+
+.box-item:hover .edvents-name {
+    opacity: 0;
 }
 
 .item-1 {
@@ -572,6 +574,10 @@ a {
 .custom-checkbox input[type=checkbox]:checked 
 + .subscribe-box-checkbox-text::before {
     background-image: url(../icons/check_box.svg);
+}
+
+.custom-checkbox .error + .subscribe-box-checkbox-text::before {
+    box-shadow: inset 0px 0px 10px rgb(255 0 0);
 }
 
 .info-box {
