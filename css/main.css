@@ -242,16 +242,16 @@ a {
     opacity: 0.2;
 }
 
-.edvents-title {    
+.events-title {    
     margin-bottom: 42px;
     padding-top: 22px;
 }
 
-.edvents-box {
+.events-box {
     display: flex;
     height: 600px;
     justify-content: space-between;
-    margin-bottom: 158px;
+    margin-bottom: 136px;
 }
 
 .box-item {
@@ -287,7 +287,7 @@ a {
     opacity: 1;
 }
 
-.box-item:hover .edvents-name {
+.box-item:hover .events-name {
     opacity: 0;
 }
 
@@ -326,7 +326,7 @@ a {
     margin-bottom: 60px;
 }
 
-.edvents-name {
+.events-name {
     position: absolute;
     background-color: #fbf138;
     font-size: 18px;
@@ -336,7 +336,7 @@ a {
     right: 0px;
 }
 
-.item-1 > .edvents-name {
+.item-1 > .events-name {
     bottom: 2px;
 }
 
@@ -345,6 +345,7 @@ a {
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 35px;
+    padding-top: 22px;
 }
 
 .schedule-box h3 {
