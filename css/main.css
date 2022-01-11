@@ -164,7 +164,7 @@ a {
 }
 
 .bg-description {
-    width: 297px;    
+    max-width: 297px;    
     margin-left: 91px;
 }
 
@@ -307,7 +307,7 @@ a {
 }
 
 .box-text {
-    width: 260px;
+    max-width: 260px;
     font-weight: 700;   
     margin-left: 30px;    
     line-height: 1.2;
@@ -395,10 +395,7 @@ a {
     opacity: 1;
     max-height: 100px;
     transition: .7s;
-}
-
-.schedule-grid-item:hover .training-title {
-    margin-bottom: 23px;
+    margin-top: 23px;
 }
 
 .schedule-grid-item:nth-child(1):hover .training-box img,
@@ -409,13 +406,14 @@ a {
 
 .training-box img {
     margin-bottom: 37px;
+    transition: .7s;
 }
 
 .training-title {
     display: block;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 0px; /*23*/
+    margin-bottom: 0px;
 }
 
 .training-description {
@@ -425,6 +423,7 @@ a {
     font-size: 18px;
     font-weight: 400;
     line-height: 1.5;
+    transition: .7s;
 }
 
 .grid-item-1 {
@@ -558,14 +557,39 @@ a {
 	position: relative;
 }
 
-.custom-checkbox input[type=checkbox] {
-    position: absolute;
+.checkbox-input {
+    /*position: absolute;
 	z-index: -1;
-	opacity: 0;
-	display: block;
+	opacity: 0;*/
+	display: none;
+}
+
+.checkbox-input:checked + .custom-checkbox-label::after {
+    transform: scale(1);    
+}
+
+.custom-checkbox-label {
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-checkbox-label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    transform: scale(0);
+    background-image: url(../icons/check_box.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #2B3541;
+    transition: transform 0.5s ease 0s;
 }
 
 .subscribe-box-checkbox-text {
+    display: block;
     color: rgba(43, 53, 65, 0.5);
     font-size: 11px;
     font-weight: 400;
@@ -574,23 +598,18 @@ a {
     line-height: 1.7;
 }
 
-.subscribe-box-checkbox-text::before {
+.custom-checkbox-label::before {    
     content: '';
     position: absolute;
-    width: 18px;
-	height: 18px;
+    width: 14px;
+	height: 14px;
     top: 0;
     left: 0;
-    transition: 0.3s;
-    background: url(../icons/check\ box\ empty.svg) 0 0 no-repeat;
+    background-color: #fff;
+    border: solid 2px #2B3541;
 }
 
-.custom-checkbox input[type=checkbox]:checked 
-+ .subscribe-box-checkbox-text::before {
-    background-image: url(../icons/check_box.svg);
-}
-
-.custom-checkbox .error + .subscribe-box-checkbox-text::before {
+.custom-checkbox .error + .custom-checkbox-label::before {
     box-shadow: inset 0px 0px 10px rgb(255 0 0);
 }
 
@@ -770,14 +789,14 @@ a {
 .modalwin { 
     width: 500px;
     background: #F3F3F3;
-    top: 20%; /* отступ сверху */
+    top: 20%;
     right: 0;
     left: 0;
     font-size: 14px; 
     margin: 0 auto;
-    z-index:2; /* поверх всех */
-    display: none;  /* сначала невидим */
-    position: fixed; /* фиксированное позиционирование, окно стабильно при прокрутке */
+    z-index: 2;
+    display: none;
+    position: fixed;
     padding: 60px 50px 80px;
     animation-name: modal;
     animation-duration: 1s
@@ -787,9 +806,9 @@ a {
     position: fixed;
     width:100%;
     height:100%;
-    z-index:1; /* поверх всех  кроме окна*/
+    z-index:1;
     background:#000;
-    opacity: 0.3; /*прозрачность*/
+    opacity: 0.3;
     left:0;
     top:0;
     animation-name: shadow;

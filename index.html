@@ -179,12 +179,14 @@
                             <input type="text" class="input-email-sub req" placeholder="Ваш e-mail">
                             <button type="submit" class="subscribe-btn bg-button">подписаться</button>
                         </div>
-                        <label class="custom-checkbox">
-                            <input type="checkbox" class="checkbox-item req">
-                            <p class="subscribe-box-checkbox-text">Согласен с обработкой 
-                                <a href="#" class="personal-data">персональных данных</a>
-                            </p>
-                        </label>                      
+                        <div class="custom-checkbox">
+                            <input id="formAgreement" type="checkbox" class="checkbox-input req">
+                            <label for="formAgreement" class="custom-checkbox-label req">
+                                <span class="subscribe-box-checkbox-text">Согласен с обработкой 
+                                    <a href="#" class="personal-data">персональных данных</a>
+                                </span>
+                            </label>
+                        </div>                      
                     </form>
                 </div>
             </div>
@@ -380,7 +382,7 @@
                             error++;
                         }
                     }
-                    if (input.classList.contains('checkbox-item')) {
+                    if (input.classList.contains('checkbox-input')) {
                         if (input.getAttribute("type") === "checkbox" && input.checked === false) {
                             formAddError(input);
                             input.onfocus = function() {
