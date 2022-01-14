@@ -130,15 +130,18 @@ a {
 
 .bg {
     margin-bottom: 140px;
+    overflow-x: hidden;
 }
 
 .bg > .container {
     display: flex;
+    position: relative;
 }
 
 .bg-text {
-    max-width: 676px;    
+    max-width: 635px;    
     padding-top: 225px;
+    padding-bottom: 262px;
     color: #2B3541;
     z-index: 1;    
     position: relative;
@@ -207,10 +210,11 @@ a {
 }
 
 .visual {
-    position: relative;
-    width: 790px;
+    position: absolute;
+    max-width: 790px;
+    width: 100%;
     height: 850px;
-    right: -75px;
+    right: -59px;
     top: 0px;
 }
 
@@ -218,6 +222,8 @@ a {
     position: absolute;
     top: 39px;
     right: -97px;
+    width: 983px;
+    height: 809px;
 }
 
 .visual-bg {
@@ -252,17 +258,21 @@ a {
     height: 600px;
     justify-content: space-between;
     margin-bottom: 136px;
+    gap: 20px;
 }
 
 .box-item {
     position: relative;
     width: 367px;
     height: 100%;
+    background-position: center;
 }
 
 .item-gradient {
     position: absolute;
     background: linear-gradient(180deg, rgba(251, 241, 56, 0.3) 0%, rgba(253, 249, 182, 0) 100%);
+    width: 100%;
+    height: 100%;
 }
 
 .item-gradient:hover {
@@ -319,6 +329,7 @@ a {
     margin-top: 35px;
     margin-bottom: 22px;
     opacity: 0.6;
+    color: #2B3541;
 }
 
 .box-text-title {
@@ -617,10 +628,11 @@ a {
     display: flex;
     justify-content: space-between;
     margin-bottom: 75px;
+    gap: 77px;
 }
 
 .info-text {
-    width: 483px;
+    max-width: 483px;
 }
 
 .info-title {
@@ -640,37 +652,51 @@ a {
 .info-img {
     position: relative;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    width: 100%;
+    height: 336px;
 }
 
 .info-img-bg {
     position: absolute;
-    width: 580px;
+    width: 100%;
     height: 336px;
     background: linear-gradient(180deg, #FBF138 0%, rgba(253, 249, 182, 0.45) 100%);
     opacity: 0.3;
 }
 
+.info-img img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 336px;
+    z-index: -1;
+}
+
 .advantages-box {
     display: flex;
     justify-content: space-between;
-    gap: 67px;
+    /*gap: 67px;*/
     margin-bottom: 170px;
 }
 
 .advantages-item:first-child {
-    flex-basis: 24.5%;
+    /*flex-basis: 24.5%;*/
+    width: 231px;
 }
 
 .advantages-item:nth-child(2) {
-    flex-basis: 30%;
+    /*flex-basis: 30%;*/
+    width: 284px;
 }
 
 .advantages-item:nth-child(3) {
-    flex-basis: 23%;
+    /*flex-basis: 23%;*/
+    width: 221px;
 }
 
 .advantages-item:last-child {
-    flex-basis: 21.5%;
+    /*flex-basis: 21.5%;*/
+    width: 204px;
 }
 
 .advantages-title {
@@ -901,4 +927,102 @@ input:hover {
 .modal-form-btn {
     padding: 23px 194px;
     border: none;
+}
+
+/* ------------------ ADAPTIVE FOR TABLETS ------------------ */
+
+@media (max-width: 1168px) {
+
+    .training-title,
+    .training-description {
+        font-size: 1.54vw;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .bg-text-title {
+        font-size: 4.36vw;
+    }
+
+    
+}
+
+@media (max-width: 1050px) {    
+    
+    .box-text span {
+        font-size: 1.71vw;
+        margin-top: 3.33vw;
+        margin-bottom: 2.09vw;
+    }
+
+    .box-text-title {
+        font-size: 2.66vw;
+    }
+
+    .box-item {
+        height: 57.14vw;
+    }
+
+    .events-name {
+        font-size: 1.71vw;
+        padding: 1.24vw 1.9vw;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .container {
+        max-width: 768px;
+    }
+
+    .bg-text {
+        padding-top: 150px;
+        padding-bottom: 109px;
+        max-width: 432px;
+    }
+
+    .bg-text-title {
+        font-size: 32px;
+    }
+
+    .bg-text h2 {
+        font-size: 27px;
+    }
+
+    .bg-description {
+        font-size: 16px;
+        margin-left: 61px;
+    }
+
+    .button-down {
+        width: 35px;
+        height: 37px;
+    }
+
+    .visual {
+        right: -39px;
+        height: 567px;
+    }
+
+    .visual img {
+        width: 655px;
+        height: 539px;
+        top: 27px;
+        right: -61px;
+    }
+
+    .visual-bg-1,
+    .visual-bg-2 {
+        height: 567px;        
+    }
+
+    .visual-bg-1 {
+        width: 357px
+    }
+
+    .visual-bg-2 {
+        width: 157px;
+    }
+
 }
