@@ -581,10 +581,12 @@ a {
 
 ::-moz-placeholder { 
     color: #2B3541;
-    opacity: .3; }
+    opacity: .3;
+    padding-left: 17px;}
 ::-webkit-input-placeholder {
     color: #2B3541;
-    opacity: .3; }
+    opacity: .3;
+    padding-left: 17px;}
 
 .personal-data {
     opacity: 0.5;
@@ -1010,13 +1012,11 @@ a {
 
 .modal-form {
     width: 100%;
-    overflow: hidden;
 }
 
 .modal-form > input {
     display: block;
     padding: 23px 0px;
-    padding-left: 17px;
     border: 1px solid #fff;
     width: 100%;
 }
