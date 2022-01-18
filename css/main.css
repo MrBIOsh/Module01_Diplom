@@ -146,7 +146,6 @@ a {
 
 .bg {
     margin-bottom: 140px;
-    overflow-x: hidden;
 }
 
 .bg > .container {
@@ -1348,7 +1347,6 @@ input:hover {
 
     .bg {
         margin-bottom: 63px;
-        overflow-x: visible;
     }
 
     .bg > .container {
