@@ -1737,7 +1737,7 @@ input:hover {
 @media (max-width: 480px) {
 
     .container {
-        max-width: 450px;
+        max-width: 462px;
     }
 
     .header-logo-box > .header-logo {
