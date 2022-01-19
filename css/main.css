@@ -1752,12 +1752,13 @@ input:hover {
     }
 
     .bg-text {
-        max-width: 340px;
+        width: 100%;
     }
 
     .bg-text-title {
         font-size: 26px;
         letter-spacing: 0.6px;
+        max-width: 360px;
     }
 
     .bg-text h2 {
