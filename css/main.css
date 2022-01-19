@@ -583,12 +583,10 @@ a {
 
 ::-moz-placeholder { 
     color: #2B3541;
-    opacity: .3;
-    padding-left: 17px;}
+    opacity: .3;}
 ::-webkit-input-placeholder {
     color: #2B3541;
-    opacity: .3;
-    padding-left: 17px;}
+    opacity: .3;}
 
 .personal-data {
     opacity: 0.5;
@@ -1013,15 +1011,21 @@ a {
 }
 
 .modal-form {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 
 .modal-form > input {
     display: block;
     padding: 23px 0px;
     border: 1px solid #fff;
-    width: 100%;
+    padding-left: 17px;
 }
+
+/*.modal-form > input::-webkit-input-placeholder {
+    padding-left: 17px;
+}*/
 
 input:focus {
     outline: none;
@@ -1332,6 +1336,7 @@ input:hover {
     .header-logo-box {
         display: flex;
         gap: 59px;
+        align-items: center;
     }
 
     .header-nav {
@@ -1340,7 +1345,6 @@ input:hover {
 
     .header-burger {
         display: block;
-        height: 22px;
     }
 
     .nav-social {
@@ -1358,6 +1362,7 @@ input:hover {
     }
 
     .bg-text {
+        width: 100%;
         padding-top: 0px;
         padding-bottom: 38px;
     }
@@ -1621,17 +1626,16 @@ input:hover {
     }
 
     .modalwin {
-        width: 82vw;
+        width: 84%;
         padding: 60px 20px 60px;
     }
 
     .modal-box {
-        width: auto;
+        width: 100%;
+        max-width: 300px;
     }
 
     .modal-title {
-        width: 100%;
-        max-width: 300px;
         margin: 0 auto;
         margin-bottom: 14px;
         font-size: 20px;
@@ -1645,8 +1649,12 @@ input:hover {
 
     .modal-description {
         font-size: 14px;
+        margin: 0 auto;
+    }
+
+    .modal-form {
         width: 100%;
-        max-width: 268px;
+        max-width: 500px;
         margin: 0 auto;
     }
     
@@ -1723,6 +1731,11 @@ input:hover {
         gap: 40px;
         margin-bottom: 8px;
     }
+    
+    .footer-nav-social {
+        justify-content: center;
+        gap: 154px;
+    }
 
     .footer-links {
         font-size: 12px;
@@ -1740,10 +1753,18 @@ input:hover {
         max-width: 462px;
     }
 
+    .header-logo-box {
+        align-items: center;
+    }
+
     .header-logo-box > .header-logo {
         background-size: contain;
         width: 78px;
         height: 24px;
+    }
+
+    .header-burger {        
+        height: 22px;
     }
 
     .nav-social a {
