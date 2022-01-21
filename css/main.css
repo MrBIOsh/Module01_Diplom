@@ -1542,16 +1542,13 @@ input:hover {
         padding-top: 10px;
     }
 
-    .item-active:hover .training-box img {
+    .item-active:hover .training-box img,
+    .schedule-grid-item:nth-child(3):hover .training-box img {
         padding-top: 0px;
     }
 
     .schedule-grid-item:nth-child(3) .title-box {
         padding-top: 4px;
-    }
-
-    .schedule-grid-item:nth-child(3):hover .training-box img {
-        padding-top: 0;
     }
 
     .schedule-box {
@@ -1795,10 +1792,7 @@ input:hover {
         gap: 154px;
     }
 
-    .footer-links {
-        font-size: 12px;
-    }
-
+    .footer-links,
     .footer-nav-social li:first-child > a {
         font-size: 12px;
     }
@@ -1841,15 +1835,14 @@ input:hover {
     }
 
     .bg-text-title {
-        font-size: 26px;
         letter-spacing: 0.6px;
     }
 
-    .bg-text h2 {
-        font-size: 26px;
-    }
-
-    h3 {
+    h3,
+    .bg-text-title,
+    .bg-text h2,
+    .events-title,
+    .schedule-box h3 {
         font-size: 26px;
     }
 
@@ -1857,19 +1850,11 @@ input:hover {
         grid-template-rows: 310px 336px;
     }
 
-    .events-title {
-        font-size: 26px;
-    }
-
-    .schedule-box h3 {
-        font-size: 26px;
-    }
-
-    .schedule-box p {
-        font-size: 16px;
-    }
-
-    .grid-item-time {
+    .schedule-box p,
+    .grid-item-time,
+    .info-description,
+    .advantages-title,
+    .advantages-description {
         font-size: 16px;
     }
 
@@ -1880,18 +1865,6 @@ input:hover {
     .subscribe-box-title::before {
         top: 38px;
         left: -17px;
-    }
-
-    .info-description {
-        font-size: 16px;
-    }
-    
-    .advantages-title {
-        font-size: 16px;
-    }
-
-    .advantages-description {
-        font-size: 16px;
     }
 
     .copyright {
