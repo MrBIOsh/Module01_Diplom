@@ -1726,6 +1726,23 @@ input:hover {
         background-position: -39px -83px;
     }
 
+    .box-text {
+        margin-left: 20px;
+    }
+
+    .box-text span {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+
+    .box-text-title {
+        font-size: 16px;
+    }
+
+    .item-3 .box-text-title {
+        max-width: 112px;
+    }
+
     .footer {
         background-color: transparent;
     }
@@ -1843,23 +1860,6 @@ input:hover {
 
     .advantages-description {
         font-size: 16px;
-    }
-
-    .box-text {
-        margin-left: 20px;
-    }
-
-    .box-text span {
-        font-size: 12px;
-        margin-bottom: 12px;
-    }
-
-    .box-text-title {
-        font-size: 16px;
-    }
-
-    .item-3 .box-text-title {
-        max-width: 112px;
     }
 
     .copyright {
