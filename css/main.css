@@ -447,7 +447,7 @@ a {
 .schedule-grid-item:nth-child(1):hover .training-box img,
 .schedule-grid-item:nth-child(5):hover .training-box img {
     margin-bottom: 15px;
-    transition: 1s;
+    transition: .7s;
 }
 
 .training-box img {
@@ -631,7 +631,7 @@ a {
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #2B3541;
-    transition: transform 0.5s ease 0s;
+    transition: transform .7s ease 0s;
 }
 
 .subscribe-box-checkbox-text {
@@ -664,6 +664,7 @@ a {
     justify-content: space-between;
     margin-bottom: 75px;
     gap: 77px;
+    padding-top: 22px;
 }
 
 .info-text {
@@ -675,8 +676,7 @@ a {
     display: none;
 }
 
-.info-title {
-    padding-top: 22px;
+.info-title {    
     margin-bottom: 22px;
 }
 
@@ -874,7 +874,7 @@ a {
     left: 0;
     right: 0;
     margin: 20px auto 0;
-    transition: 0.5s;
+    transition: .7s;
     padding: 40px 30px;
     box-sizing: border-box;
     margin: 0;
@@ -1280,7 +1280,7 @@ input:hover {
     }
 
     .info-box {
-        gap: 40px;
+        gap: 30px;
     }
 
     .info-text {
@@ -1426,7 +1426,7 @@ input:hover {
     .events-box {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        grid-template-rows: 65.1vw 400px;
         margin-bottom: 60px;
         height: 100%;
         gap: 10px;
@@ -1438,31 +1438,30 @@ input:hover {
 
     .box-item {
         width: 100%;
-        height: 85.85vw;
-    }
-
-    .events-box > .box-item:last-child,
-    .item-3 > .box-item {
-        height: 92.5vw;
+        height: 100%;
     }
 
     .item-1 {
-        background-size: 139%;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: -37px -23px;
+        background-position: center center;
     }
 
     .item-2 {
-        background-size: 139%;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-position: -75px -95px;
+        background-position: center center;
     }
 
     .item-3 {
         background-image: url(../files/@1x/vebinar-2-mobile.png);
         grid-column: 1/3;
         background-repeat: no-repeat;
-        background-position-y: 0px;        
+        background-position-y: center;        
+    }
+    
+    .box-text {
+        max-width: 159px;
     }
 
     .events-title {
@@ -1616,6 +1615,10 @@ input:hover {
         gap: 41px;
     }
 
+    .info-description {
+        margin-bottom: 29px;
+    }
+
     .input-box {
         display: flex;
         flex-direction: column;
@@ -1661,12 +1664,6 @@ input:hover {
 }
 
 @media (max-width: 600px) {
-
-    .item-2 {
-        background-size: 144%;
-        background-repeat: no-repeat;
-        background-position: -39px -83px;
-    }
 
     .info-title {
         margin-bottom: 18px;
@@ -1717,6 +1714,18 @@ input:hover {
         padding: 0 9px;
     }
 
+    .item-1 {
+        background-size: 138%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .item-2 {
+        background-size: 144%;
+        background-repeat: no-repeat;
+        background-position: -39px -83px;
+    }
+
     .footer {
         background-color: transparent;
     }
@@ -1743,6 +1752,12 @@ input:hover {
 
     .footer-nav-social li:first-child > a {
         font-size: 12px;
+    }
+
+    .footer-nav-social li:first-child > a::before {
+        padding: 10px;
+        top: -13px;
+        left: -5px;
     }
 
 }
@@ -1787,6 +1802,10 @@ input:hover {
 
     h3 {
         font-size: 26px;
+    }
+
+    .events-box {
+        grid-template-rows: 310px 336px;
     }
 
     .events-title {
