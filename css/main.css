@@ -12,9 +12,19 @@
     font-style: normal;
 }
 
+@-webkit-keyframes modal {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 @keyframes modal {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+@-webkit-keyframes shadow {
+    from {opacity: 0;}
+    to {opacity: 0.3;}
 }
 
 @keyframes shadow {
@@ -31,7 +41,7 @@ body {
 .nav-insta:hover, 
 .nav-fb:hover,
 .button-down:hover {
-    transition: 0.2s;    
+    transition: 0.3s;    
     transform: scale(1.2);
 }
 
@@ -75,7 +85,7 @@ a {
     display: block;
     width: 97px;
     height: 30px;
-    background-image: url(../logo.svg);
+    background-image: url(../img/icons/logo.svg);
 }
 
 .header-burger {
@@ -84,7 +94,7 @@ a {
 }
 
 .burger {
-    background-image: url(../icons/burger.svg);
+    background-image: url(../img/icons/burger.svg);
     background-color: transparent;
     background-repeat: no-repeat;
     background-size: cover;
@@ -137,11 +147,11 @@ a {
 }
 
 .nav-insta {    
-    background-image: url(../icons/IN.svg);    
+    background-image: url(../img/icons/IN.svg);    
 }
 
 .nav-fb {
-    background-image: url(../icons/FB.svg);
+    background-image: url(../img/icons/FB.svg);
 }
 
 .bg {
@@ -219,7 +229,7 @@ a {
     width: 52px;
     height: 55px;
     position: absolute;
-    background-image: url(../icons/Arrow.svg);
+    background-image: url(../img/icons/Arrow.svg);
     background-repeat: no-repeat;
     background-size: cover;
     bottom: 0px;
@@ -321,17 +331,17 @@ a {
 }
 
 .item-1 {
-    background-image: url(../files/@1x/maraphon.png);
+    background-image: url(../img/png/@1x/maraphon.png);
     background-size: cover;
 }
 
 .item-2 {
-    background-image: url(../files/@1x/Vebinar1.png);
+    background-image: url(../img/png/@1x/Vebinar1.png);
     background-size: cover;
 }
 
 .item-3 {
-    background-image: url(../files/@1x/Vebinar2.png);
+    background-image: url(../img/png/@1x/Vebinar2.png);
     background-size: cover;
 }
 
@@ -364,6 +374,8 @@ a {
     padding: 13px 20px;
     bottom: 0px;
     right: 0px;
+    opacity: 1;
+    transition: .3s;
 }
 
 .events-plus {
@@ -422,7 +434,7 @@ a {
     overflow-y: hidden;
 }
 
-.schedule-grid-item time {
+.grid-item-time {
     display: block;
     color: #010101;
     text-align: right;
@@ -493,7 +505,7 @@ a {
     border: none;
 }
 
-.item-active time {
+.item-active .grid-item-time {
     color: #2B3541;
 }
 
@@ -581,10 +593,13 @@ a {
 
 ::-moz-placeholder { 
     color: #2B3541;
-    opacity: .3;}
+    opacity: .3;
+}
+
 ::-webkit-input-placeholder {
     color: #2B3541;
-    opacity: .3;}
+    opacity: .3;
+}
 
 .personal-data {
     opacity: 0.5;
@@ -597,7 +612,10 @@ a {
 .custom-checkbox {
     display: block;
 	cursor: pointer;
-	user-select: none;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 	position: relative;
 }
 
@@ -625,7 +643,7 @@ a {
     width: 18px;
     height: 18px;
     transform: scale(0);
-    background-image: url(../icons/check_box.svg);
+    background-image: url(../img/icons/check_box.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #2B3541;
@@ -694,7 +712,8 @@ a {
 
 .info-img {
     position: relative;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     width: 100%;
     height: 336px;
 }
@@ -709,7 +728,8 @@ a {
 
 .info-img img {
     position: absolute;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     width: 100%;
     height: 336px;
     z-index: -1;
@@ -925,7 +945,7 @@ a {
     background-repeat: no-repeat;
     background-size: contain;
     background-color: transparent;
-    background-image: url(../icons/close.svg);
+    background-image: url(../img/icons/close.svg);
     width: 20px;
     height: 20px;
     border: none;
@@ -949,8 +969,10 @@ a {
     display: none;
     position: fixed;
     padding: 60px 50px 80px;
-    animation-name: modal;
-    animation-duration: 1s
+    -webkit-animation-name: modal;
+            animation-name: modal;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s
 }
 
 #shadow { 
@@ -962,15 +984,17 @@ a {
     opacity: 0.3;
     left:0;
     top:0;
-    animation-name: shadow;
-    animation-duration: .3s
+    -webkit-animation-name: shadow;
+            animation-name: shadow;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s
 }
 
 .modal-close {
     width: 22px;
     height: 22px;
     background-color: transparent;
-    background-image: url(../icons/close.svg);
+    background-image: url(../img/icons/close.svg);
     background-repeat: no-repeat;
     background-size: contain;
     border: none;
@@ -1205,11 +1229,11 @@ input:hover {
         padding: 20px;
     }
 
-    .schedule-grid-item time {
+    .grid-item-time {
         margin-bottom: 13px;
     }
 
-    .item-active time {
+    .item-active .grid-item-time {
         margin-bottom: 55px;
     }
 
@@ -1457,7 +1481,7 @@ input:hover {
     }
 
     .item-3 {
-        background-image: url(../files/@1x/vebinar-2-mobile.png);
+        background-image: url(../img/png/@1x/vebinar-2-mobile.png);
         grid-column: 1/3;
         background-repeat: no-repeat;
         background-position-y: center;        
@@ -1845,7 +1869,7 @@ input:hover {
         font-size: 16px;
     }
 
-    .schedule-grid-item time {
+    .grid-item-time {
         font-size: 16px;
     }
 
