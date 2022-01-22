@@ -1495,6 +1495,10 @@ input:hover {
         max-width: 159px;
     }
 
+    .box-text-title {
+        margin: 0px;
+    }
+
     .events-title {
         font-size: 30px;
         margin-bottom: 20px;
