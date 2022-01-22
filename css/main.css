@@ -1234,10 +1234,7 @@ input:hover {
 
     .schedule-grid-item {
         padding: 20px;
-    }
-
-    .grid-item-time {
-        margin-bottom: 13px;
+        gap: 13px;
     }
 
     .item-active .grid-item-time {
