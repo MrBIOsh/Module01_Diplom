@@ -857,8 +857,8 @@ a {
     z-index: -1;
 }
 
-.footer-nav-social li:nth-child(2) > a,
-.footer-nav-social li:last-child > a{
+.footer-nav-social .nav-inst,
+.footer-nav-social .nav-fb {
     display: block;
     width: 27px;
     height: 27px;
