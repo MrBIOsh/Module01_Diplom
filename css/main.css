@@ -38,7 +38,7 @@ body {
 
 /* SCALE BUTTON */
 
-.nav-insta:hover, 
+.nav-inst:hover, 
 .nav-fb:hover,
 .button-down:hover {
     transition: 0.3s;    
@@ -144,9 +144,10 @@ a {
     height: 30px;
     background-size: contain;
     background-repeat: no-repeat;
+    transition: .3s;
 }
 
-.nav-insta {    
+.nav-inst {    
     background-image: url(../img/icons/IN.svg);    
 }
 
@@ -374,6 +375,7 @@ a {
 .events-name {
     position: absolute;
     background-color: #fbf138;
+    color: #2B3541;
     font-size: 18px;
     font-weight: 400;
     padding: 13px 20px;
@@ -717,8 +719,6 @@ a {
 
 .info-img {
     position: relative;
-    -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-            filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     width: 100%;
     height: 336px;
 }
@@ -864,6 +864,7 @@ a {
     height: 27px;
     background-size: contain;
     background-repeat: no-repeat;
+    transition: .3s;
 }
 
 .social-block {
