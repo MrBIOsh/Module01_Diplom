@@ -38,7 +38,7 @@ body {
 
 /* SCALE BUTTON */
 
-.nav-inst:hover, 
+.nav-insta:hover, 
 .nav-fb:hover,
 .button-down:hover {
     transition: 0.3s;    
@@ -147,8 +147,8 @@ a {
     transition: .3s;
 }
 
-.nav-inst {    
-    background-image: url(../img/icons/IN.svg);
+.nav-insta {    
+    background-image: url(../img/icons/IN.svg);    
 }
 
 .nav-fb {
